@@ -23,10 +23,16 @@ df = load_data()
 df['Date'] = pd.to_datetime(df['Date'])
 
 # Create a line chart with Plotly Express
+# Reshape the data to long format for Plotly Express
+df_melted = df.melt(id_vars='Date', value_vars=['Open', 'High', 'Low', 'Close'], 
+                    var_name='Price Type', value_name='Price')
+
+# Create a line chart with Plotly Express
 fig = px.line(
-    df,
+    df_melted,
     x='Date', 
-    y='Close',
+    y='Price',
+    color='Price Type',  # Differentiate lines by 'Price Type'
     title="Price Over Time",
     labels={'Date': 'Date', 'Price': 'Price'}
 )
