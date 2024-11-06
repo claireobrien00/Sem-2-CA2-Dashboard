@@ -11,7 +11,7 @@ from sklearn.preprocessing import MinMaxScaler
 # Function to load data from GitHub
 @st.cache
 def load_data():
-    url = 'https://raw.githubusercontent.com/claireobrien00/CA2_Dashboard/main/CA2_Dashboard_Livestock.csv'
+    url = 'https://raw.githubusercontent.com/claireobrien00/Sem-2-CA2-Dashboard/main/AAPL.csv'
     data = pd.read_csv(url)
     return data
 
@@ -19,30 +19,21 @@ def load_data():
 df = load_data()
 
 
-# Create choropleth map
-fig = px.choropleth(df,
-                    locations="Alpha-3 code", 
-                    color="Total Livestock", 
-                    hover_name="Alpha-3 code",
-                    animation_frame="Year",
-                    color_continuous_scale=px.colors.sequential.Plasma,
-                    projection='natural earth',
-                    range_color=(0, 70000)
-                   )
+# Convert 'Date' column to datetime if it's not already
+df['Date'] = pd.to_datetime(df['Date'])
 
-fig.update_geos(
-    # Set the scope to 'europe'
-    scope='world',
-    # Adjust the center and zoom to focus on Europe
-    center=dict(lat=52, lon=10),
-    projection_scale=4
+# Create a line chart with Plotly Express
+fig = px.line(
+    df,
+    x='Date', 
+    y='Close',
+    title="Price Over Time",
+    labels={'Date': 'Date', 'Price': 'Price'}
 )
 
-fig.update_layout(
-    title_text="Total Livestock in European Countries"
-)
 # Display the figure in Streamlit
 st.plotly_chart(fig)
+
 
 
 
