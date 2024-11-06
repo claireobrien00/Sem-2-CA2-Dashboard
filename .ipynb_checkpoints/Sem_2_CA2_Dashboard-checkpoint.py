@@ -14,6 +14,7 @@ import sklearn
 
 import sys
 print(sys.executable)
+st.write(f"Python executable being used: {sys.executable}")
 
 
 # # Function to load data from GitHub
