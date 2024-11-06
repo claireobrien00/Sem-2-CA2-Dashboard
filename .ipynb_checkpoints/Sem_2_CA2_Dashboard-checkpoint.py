@@ -17,38 +17,38 @@ print(sys.executable)
 st.write(f"Python executable being used: {sys.executable}")
 
 
-# # Function to load data from GitHub
-# @st.cache
-# def load_data1():
-#     url = 'https://raw.githubusercontent.com/claireobrien00/Sem-2-CA2-Dashboard/main/AAPL.csv'
-#     data_AAPL = pd.read_csv(url)
-#     return data_AAPL
+# Function to load data from GitHub
+@st.cache
+def load_data1():
+    url = 'https://raw.githubusercontent.com/claireobrien00/Sem-2-CA2-Dashboard/main/AAPL.csv'
+    data_AAPL = pd.read_csv(url)
+    return data_AAPL
 
-# # Load the data
-# df_AAPL = load_data1()
+# Load the data
+df_AAPL = load_data1()
 
 
-# # Convert 'Date' column to datetime if it's not already
-# df_AAPL['Date'] = pd.to_datetime(df_AAPL['Date'])
+# Convert 'Date' column to datetime if it's not already
+df_AAPL['Date'] = pd.to_datetime(df_AAPL['Date'])
 
-# fig = go.Figure()
+fig = go.Figure()
 
-# # Add a line trace for each price type
-# fig.add_trace(go.Scatter(x=df_AAPL['Date'], y=df_AAPL['Open'], mode='lines', name='Open'))
-# fig.add_trace(go.Scatter(x=df_AAPL['Date'], y=df_AAPL['High'], mode='lines', name='High'))
-# fig.add_trace(go.Scatter(x=df_AAPL['Date'], y=df_AAPL['Low'], mode='lines', name='Low'))
-# fig.add_trace(go.Scatter(x=df_AAPL['Date'], y=df_AAPL['Close'], mode='lines', name='Close'))
+# Add a line trace for each price type
+fig.add_trace(go.Scatter(x=df_AAPL['Date'], y=df_AAPL['Open'], mode='lines', name='Open'))
+fig.add_trace(go.Scatter(x=df_AAPL['Date'], y=df_AAPL['High'], mode='lines', name='High'))
+fig.add_trace(go.Scatter(x=df_AAPL['Date'], y=df_AAPL['Low'], mode='lines', name='Low'))
+fig.add_trace(go.Scatter(x=df_AAPL['Date'], y=df_AAPL['Close'], mode='lines', name='Close'))
 
-# # Update layout with title and labels
-# fig.update_layout(
-#     title=" AAPL Stock Prices Over Time",
-#     xaxis_title="Date",
-#     yaxis_title="Price",
-#     legend_title="Price Type"
-# )
+# Update layout with title and labels
+fig.update_layout(
+    title=" AAPL Stock Prices Over Time",
+    xaxis_title="Date",
+    yaxis_title="Price",
+    legend_title="Price Type"
+)
 
-# # Display the figure in Streamlit
-# st.plotly_chart(fig)
+# Display the figure in Streamlit
+st.plotly_chart(fig)
 
 
 # # Load the pre-trained time series forecasting model
