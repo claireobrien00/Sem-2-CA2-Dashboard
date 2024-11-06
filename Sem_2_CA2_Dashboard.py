@@ -135,4 +135,212 @@ fig.update_layout(
 # Display the figure in Streamlit
 st.plotly_chart(fig)
 
+def load_data3():
+    url = 'https://raw.githubusercontent.com/claireobrien00/Sem-2-CA2-Dashboard/main/BA.csv'
+    data_BA = pd.read_csv(url)
+    return data_BA
+
+
+
+# Load the data
+df_BA = load_data3()
+
+
+# Convert 'Date' column to datetime if it's not already
+df_BA['Date'] = pd.to_datetime(df_BA['Date'])
+
+fig = go.Figure()
+
+# Add a line trace for each price type
+fig.add_trace(go.Scatter(x=df_BA['Date'], y=df_BA['Open'], mode='lines', name='Open'))
+fig.add_trace(go.Scatter(x=df_BA['Date'], y=df_BA['High'], mode='lines', name='High'))
+fig.add_trace(go.Scatter(x=df_BA['Date'], y=df_BA['Low'], mode='lines', name='Low'))
+fig.add_trace(go.Scatter(x=df_BA['Date'], y=df_BA['Close'], mode='lines', name='Close'))
+
+# Update layout with title and labels
+fig.update_layout(
+    title=" BA Stock Prices Over Time",
+    xaxis_title="Date",
+    yaxis_title="Price",
+    legend_title="Price Type"
+)
+
+# Display the figure in Streamlit
+st.plotly_chart(fig)
+
+
+
+def load_data4():
+    url = 'https://raw.githubusercontent.com/claireobrien00/Sem-2-CA2-Dashboard/main/DIS.csv'
+    data_DIS = pd.read_csv(url)
+    return data_BA
+
+
+
+# Load the data
+df_DIS = load_data3()
+
+
+# Convert 'Date' column to datetime if it's not already
+df_DIS['Date'] = pd.to_datetime(df_DIS['Date'])
+
+fig = go.Figure()
+
+# Add a line trace for each price type
+fig.add_trace(go.Scatter(x=df_DIS['Date'], y=df_DIS['Open'], mode='lines', name='Open'))
+fig.add_trace(go.Scatter(x=df_DIS['Date'], y=df_DIS['High'], mode='lines', name='High'))
+fig.add_trace(go.Scatter(x=df_DIS['Date'], y=df_DIS['Low'], mode='lines', name='Low'))
+fig.add_trace(go.Scatter(x=df_DIS['Date'], y=df_DIS['Close'], mode='lines', name='Close'))
+
+# Update layout with title and labels
+fig.update_layout(
+    title=" DIS Stock Prices Over Time",
+    xaxis_title="Date",
+    yaxis_title="Price",
+    legend_title="Price Type"
+)
+
+# Display the figure in Streamlit
+st.plotly_chart(fig)
+
+
+def load_data4():
+    url = 'https://raw.githubusercontent.com/claireobrien00/Sem-2-CA2-Dashboard/main/DIS.csv'
+    data_DIS = pd.read_csv(url)
+    return data_BA
+
+
+
+# Load the data
+df_DIS = load_data3()
+
+
+# Convert 'Date' column to datetime if it's not already
+df_DIS['Date'] = pd.to_datetime(df_DIS['Date'])
+
+fig = go.Figure()
+
+# Add a line trace for each price type
+fig.add_trace(go.Scatter(x=df_DIS['Date'], y=df_DIS['Open'], mode='lines', name='Open'))
+fig.add_trace(go.Scatter(x=df_DIS['Date'], y=df_DIS['High'], mode='lines', name='High'))
+fig.add_trace(go.Scatter(x=df_DIS['Date'], y=df_DIS['Low'], mode='lines', name='Low'))
+fig.add_trace(go.Scatter(x=df_DIS['Date'], y=df_DIS['Close'], mode='lines', name='Close'))
+
+# Update layout with title and labels
+fig.update_layout(
+    title=" DIS Stock Prices Over Time",
+    xaxis_title="Date",
+    yaxis_title="Price",
+    legend_title="Price Type"
+)
+
+# Display the figure in Streamlit
+st.plotly_chart(fig)
+
+
+def load_data4():
+    url = 'https://raw.githubusercontent.com/claireobrien00/Sem-2-CA2-Dashboard/main/DIS.csv'
+    data_DIS = pd.read_csv(url)
+    return data_DIS
+
+
+
+# Load the data
+df_DIS = load_data4()
+
+
+# Convert 'Date' column to datetime if it's not already
+df_DIS['Date'] = pd.to_datetime(df_DIS['Date'])
+
+fig = go.Figure()
+
+# Add a line trace for each price type
+fig.add_trace(go.Scatter(x=df_DIS['Date'], y=df_DIS['Open'], mode='lines', name='Open'))
+fig.add_trace(go.Scatter(x=df_DIS['Date'], y=df_DIS['High'], mode='lines', name='High'))
+fig.add_trace(go.Scatter(x=df_DIS['Date'], y=df_DIS['Low'], mode='lines', name='Low'))
+fig.add_trace(go.Scatter(x=df_DIS['Date'], y=df_DIS['Close'], mode='lines', name='Close'))
+
+# Update layout with title and labels
+fig.update_layout(
+    title=" DIS Stock Prices Over Time",
+    xaxis_title="Date",
+    yaxis_title="Price",
+    legend_title="Price Type"
+)
+
+# Display the figure in Streamlit
+st.plotly_chart(fig)
+
+def load_data4():
+    url = 'https://raw.githubusercontent.com/claireobrien00/Sem-2-CA2-Dashboard/main/DIS.csv'
+    data_DIS = pd.read_csv(url)
+    return data_DIS
+
+
+
+# Load the data
+df_DIS = load_data4()
+
+
+# Convert 'Date' column to datetime if it's not already
+df_DIS['Date'] = pd.to_datetime(df_DIS['Date'])
+
+fig = go.Figure()
+
+# Add a line trace for each price type
+fig.add_trace(go.Scatter(x=df_DIS['Date'], y=df_DIS['Open'], mode='lines', name='Open'))
+fig.add_trace(go.Scatter(x=df_DIS['Date'], y=df_DIS['High'], mode='lines', name='High'))
+fig.add_trace(go.Scatter(x=df_DIS['Date'], y=df_DIS['Low'], mode='lines', name='Low'))
+fig.add_trace(go.Scatter(x=df_DIS['Date'], y=df_DIS['Close'], mode='lines', name='Close'))
+
+# Update layout with title and labels
+fig.update_layout(
+    title=" DIS Stock Prices Over Time",
+    xaxis_title="Date",
+    yaxis_title="Price",
+    legend_title="Price Type"
+)
+
+# Display the figure in Streamlit
+st.plotly_chart(fig)
+
+
+
+
+
+
+def load_data5():
+    url = 'https://raw.githubusercontent.com/claireobrien00/Sem-2-CA2-Dashboard/main/TSLA.csv'
+    data_TSLA = pd.read_csv(url)
+    return data_TSLA
+
+
+
+# Load the data
+df_TSLA = load_data5()
+
+
+# Convert 'Date' column to datetime if it's not already
+df_TSLA['Date'] = pd.to_datetime(df_TSLA['Date'])
+
+fig = go.Figure()
+
+# Add a line trace for each price type
+fig.add_trace(go.Scatter(x=df_TSLA['Date'], y=df_TSLA['Open'], mode='lines', name='Open'))
+fig.add_trace(go.Scatter(x=df_TSLA['Date'], y=df_TSLA['High'], mode='lines', name='High'))
+fig.add_trace(go.Scatter(x=df_TSLA['Date'], y=df_TSLA['Low'], mode='lines', name='Low'))
+fig.add_trace(go.Scatter(x=df_TSLA['Date'], y=df_TSLA['Close'], mode='lines', name='Close'))
+
+# Update layout with title and labels
+fig.update_layout(
+    title=" TSLA Stock Prices Over Time",
+    xaxis_title="Date",
+    yaxis_title="Price",
+    legend_title="Price Type"
+)
+
+# Display the figure in Streamlit
+st.plotly_chart(fig)
+
+
 
