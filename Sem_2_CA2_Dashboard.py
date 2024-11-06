@@ -22,19 +22,20 @@ df = load_data()
 # Convert 'Date' column to datetime if it's not already
 df['Date'] = pd.to_datetime(df['Date'])
 
-# Create a line chart with Plotly Express
-# Reshape the data to long format for Plotly Express
-df_melted = df.melt(id_vars='Date', value_vars=['Open', 'High', 'Low', 'Close'], 
-                    var_name='Price Type', value_name='Price')
+fig = go.Figure()
 
-# Create a line chart with Plotly Express
-fig = px.line(
-    df_melted,
-    x='Date', 
-    y='Price',
-    color='Price Type',  # Differentiate lines by 'Price Type'
+# Add a line trace for each price type
+fig.add_trace(go.Scatter(x=df['Date'], y=df['Open'], mode='lines', name='Open'))
+fig.add_trace(go.Scatter(x=df['Date'], y=df['High'], mode='lines', name='High'))
+fig.add_trace(go.Scatter(x=df['Date'], y=df['Low'], mode='lines', name='Low'))
+fig.add_trace(go.Scatter(x=df['Date'], y=df['Close'], mode='lines', name='Close'))
+
+# Update layout with title and labels
+fig.update_layout(
     title="Price Over Time",
-    labels={'Date': 'Date', 'Price': 'Price'}
+    xaxis_title="Date",
+    yaxis_title="Price",
+    legend_title="Price Type"
 )
 
 # Display the figure in Streamlit
