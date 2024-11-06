@@ -8,6 +8,7 @@ import sklearn
 from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import MinMaxScaler
 import joblib
+import sklearn
 
 
 # Function to load data from GitHub
