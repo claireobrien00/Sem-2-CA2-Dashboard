@@ -1,16 +1,16 @@
-# import streamlit as st
-# import pandas as pd
-# import pydeck as pdk
-# import plotly.express as px
-# import numpy as np
-# import plotly.graph_objects as go
-# import sklearn
-# from sklearn.preprocessing import StandardScaler
-# from sklearn.preprocessing import MinMaxScaler
-# import joblib
-# import sklearn
-# import skforecast
-# from skforecast.ForecasterAutoreg import ForecasterAutoreg
+import streamlit as st
+import pandas as pd
+import pydeck as pdk
+import plotly.express as px
+import numpy as np
+import plotly.graph_objects as go
+import sklearn
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
+import joblib
+import sklearn
+import skforecast
+from skforecast.ForecasterAutoreg import ForecasterAutoreg
 
 
 # # Function to load data from GitHub
