@@ -10,13 +10,13 @@ from sklearn.preprocessing import MinMaxScaler
 
 # Function to load data from GitHub
 @st.cache
-def load_data():
+def load_data1():
     url = 'https://raw.githubusercontent.com/claireobrien00/Sem-2-CA2-Dashboard/main/AAPL.csv'
     data_AAPL = pd.read_csv(url)
     return data_AAPL
 
 # Load the data
-df_AAPL = load_data()
+df_AAPL = load_data1()
 
 
 # Convert 'Date' column to datetime if it's not already
@@ -44,13 +44,13 @@ st.plotly_chart(fig)
 
 # Function to load data from GitHub
 @st.cache
-def load_data():
+def load_data2():
     url = 'https://raw.githubusercontent.com/claireobrien00/Sem-2-CA2-Dashboard/main/AMZN.csv'
     data_AMZN = pd.read_csv(url)
     return data_AMZN
 
 # Load the data
-df_AMZN = load_data()
+df_AMZN = load_data2()
 
 
 # Convert 'Date' column to datetime if it's not already
