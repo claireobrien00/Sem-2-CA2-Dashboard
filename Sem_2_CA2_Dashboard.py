@@ -9,8 +9,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import MinMaxScaler
 import joblib
 import sklearn
-# import skforecast
-# from skforecast.ForecasterAutoreg import ForecasterAutoreg
+import skforecast
+from skforecast.ForecasterAutoreg import ForecasterAutoreg
 
 import sys
 print(sys.executable)
