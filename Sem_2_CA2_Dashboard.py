@@ -12,8 +12,8 @@ from sklearn.preprocessing import MinMaxScaler
 @st.cache
 def load_data():
     url = 'https://raw.githubusercontent.com/claireobrien00/Sem-2-CA2-Dashboard/main/AAPL.csv'
-    data = pd.read_csv(url)
-    return data
+    data_AAPL = pd.read_csv(url)
+    return data_AAPL
 
 # Load the data
 df_AAPL = load_data()
@@ -46,8 +46,8 @@ st.plotly_chart(fig)
 @st.cache
 def load_data():
     url = 'https://raw.githubusercontent.com/claireobrien00/Sem-2-CA2-Dashboard/main/AMZN.csv'
-    data = pd.read_csv(url)
-    return data
+    data_AMZN = pd.read_csv(url)
+    return data_AMZN
 
 # Load the data
 df_AMZN = load_data()
