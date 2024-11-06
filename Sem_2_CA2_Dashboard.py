@@ -12,9 +12,9 @@ import sklearn
 import skforecast
 from skforecast.ForecasterAutoreg import ForecasterAutoreg
 
-import sys
-print(sys.executable)
-st.write(f"Python executable being used: {sys.executable}")
+# import sys
+# print(sys.executable)
+# st.write(f"Python executable being used: {sys.executable}")
 
 
 # Function to load data from GitHub
@@ -100,37 +100,39 @@ st.plotly_chart(fig)
 #                 st.error(f"Error in prediction: {str(e)}")
 # else:
 #     st.write("Please upload a CSV file with stock data to make a prediction.")
-# # Function to load data from GitHub
-# # @st.cache
-# # def load_data2():
-# #     url = 'https://raw.githubusercontent.com/claireobrien00/Sem-2-CA2-Dashboard/main/AMZN.csv'
-# #     data_AMZN = pd.read_csv(url)
-# #     return data_AMZN
-
-# # # Load the data
-# # df_AMZN = load_data2()
+# Function to load data from GitHub
+@st.cache
+def load_data2():
+    url = 'https://raw.githubusercontent.com/claireobrien00/Sem-2-CA2-Dashboard/main/AMZN.csv'
+    data_AMZN = pd.read_csv(url)
+    return data_AMZN
 
 
-# # # Convert 'Date' column to datetime if it's not already
-# # df_AMZN['Date'] = pd.to_datetime(df_AMZN['Date'])
 
-# # fig = go.Figure()
+# Load the data
+df_AMZN = load_data2()
 
-# # # Add a line trace for each price type
-# # fig.add_trace(go.Scatter(x=df_AMZN['Date'], y=df_AMZN['Open'], mode='lines', name='Open'))
-# # fig.add_trace(go.Scatter(x=df_AMZN['Date'], y=df_AMZN['High'], mode='lines', name='High'))
-# # fig.add_trace(go.Scatter(x=df_AMZN['Date'], y=df_AMZN['Low'], mode='lines', name='Low'))
-# # fig.add_trace(go.Scatter(x=df_AMZN['Date'], y=df_AMZN['Close'], mode='lines', name='Close'))
 
-# # # Update layout with title and labels
-# # fig.update_layout(
-# #     title=" AMZN Stock Prices Over Time",
-# #     xaxis_title="Date",
-# #     yaxis_title="Price",
-# #     legend_title="Price Type"
-# # )
+# Convert 'Date' column to datetime if it's not already
+df_AMZN['Date'] = pd.to_datetime(df_AMZN['Date'])
 
-# # # Display the figure in Streamlit
-# # st.plotly_chart(fig)
+fig = go.Figure()
+
+# Add a line trace for each price type
+fig.add_trace(go.Scatter(x=df_AMZN['Date'], y=df_AMZN['Open'], mode='lines', name='Open'))
+fig.add_trace(go.Scatter(x=df_AMZN['Date'], y=df_AMZN['High'], mode='lines', name='High'))
+fig.add_trace(go.Scatter(x=df_AMZN['Date'], y=df_AMZN['Low'], mode='lines', name='Low'))
+fig.add_trace(go.Scatter(x=df_AMZN['Date'], y=df_AMZN['Close'], mode='lines', name='Close'))
+
+# Update layout with title and labels
+fig.update_layout(
+    title=" AMZN Stock Prices Over Time",
+    xaxis_title="Date",
+    yaxis_title="Price",
+    legend_title="Price Type"
+)
+
+# Display the figure in Streamlit
+st.plotly_chart(fig)
 
 
