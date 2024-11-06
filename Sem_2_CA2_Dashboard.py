@@ -9,8 +9,11 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import MinMaxScaler
 import joblib
 import sklearn
-import skforecast
-from skforecast.ForecasterAutoreg import ForecasterAutoreg
+# import skforecast
+# from skforecast.ForecasterAutoreg import ForecasterAutoreg
+
+import sys
+print(sys.executable)
 
 
 # # Function to load data from GitHub
@@ -129,6 +132,4 @@ from skforecast.ForecasterAutoreg import ForecasterAutoreg
 # # # Display the figure in Streamlit
 # # st.plotly_chart(fig)
 
-import sys
-print(sys.executable)
 
