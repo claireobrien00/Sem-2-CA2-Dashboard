@@ -16,23 +16,23 @@ def load_data():
     return data
 
 # Load the data
-df = load_data()
+df_AAPL = load_data()
 
 
 # Convert 'Date' column to datetime if it's not already
-df['Date'] = pd.to_datetime(df['Date'])
+df_AAPL['Date'] = pd.to_datetime(df_AAPL['Date'])
 
 fig = go.Figure()
 
 # Add a line trace for each price type
-fig.add_trace(go.Scatter(x=df['Date'], y=df['Open'], mode='lines', name='Open'))
-fig.add_trace(go.Scatter(x=df['Date'], y=df['High'], mode='lines', name='High'))
-fig.add_trace(go.Scatter(x=df['Date'], y=df['Low'], mode='lines', name='Low'))
-fig.add_trace(go.Scatter(x=df['Date'], y=df['Close'], mode='lines', name='Close'))
+fig.add_trace(go.Scatter(x=df_AAPL['Date'], y=df_AAPL['Open'], mode='lines', name='Open'))
+fig.add_trace(go.Scatter(x=df_AAPL['Date'], y=df_AAPL['High'], mode='lines', name='High'))
+fig.add_trace(go.Scatter(x=df_AAPL['Date'], y=df_AAPL['Low'], mode='lines', name='Low'))
+fig.add_trace(go.Scatter(x=df_AAPL['Date'], y=df_AAPL['Close'], mode='lines', name='Close'))
 
 # Update layout with title and labels
 fig.update_layout(
-    title="Price Over Time",
+    title=" AAPL Stock Prices Over Time",
     xaxis_title="Date",
     yaxis_title="Price",
     legend_title="Price Type"
@@ -42,6 +42,38 @@ fig.update_layout(
 st.plotly_chart(fig)
 
 
+# Function to load data from GitHub
+@st.cache
+def load_data():
+    url = 'https://raw.githubusercontent.com/claireobrien00/Sem-2-CA2-Dashboard/main/AMZN.csv'
+    data = pd.read_csv(url)
+    return data
+
+# Load the data
+df_AMZN = load_data()
+
+
+# Convert 'Date' column to datetime if it's not already
+df_AMZN['Date'] = pd.to_datetime(df_AMZN['Date'])
+
+fig = go.Figure()
+
+# Add a line trace for each price type
+fig.add_trace(go.Scatter(x=df_AMZN['Date'], y=df_AMZN['Open'], mode='lines', name='Open'))
+fig.add_trace(go.Scatter(x=df_AMZN['Date'], y=df_AMZN['High'], mode='lines', name='High'))
+fig.add_trace(go.Scatter(x=df_AMZN['Date'], y=df_AMZN['Low'], mode='lines', name='Low'))
+fig.add_trace(go.Scatter(x=df_AMZN['Date'], y=df_AMZN['Close'], mode='lines', name='Close'))
+
+# Update layout with title and labels
+fig.update_layout(
+    title=" AMZN Stock Prices Over Time",
+    xaxis_title="Date",
+    yaxis_title="Price",
+    legend_title="Price Type"
+)
+
+# Display the figure in Streamlit
+st.plotly_chart(fig)
 
 
 
