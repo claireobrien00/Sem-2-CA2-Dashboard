@@ -9,6 +9,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import MinMaxScaler
 import joblib
 import sklearn
+from skforecast.ForecasterAutoreg import ForecasterAutoreg
 
 
 # Function to load data from GitHub
