@@ -261,11 +261,11 @@ st.plotly_chart(fig)
 fig = go.Figure()
 
 # Add a line trace for each price type
-fig.add_trace(go.Scatter(x=df_TSLA['Date'], y=df_TSLA['Close'], mode='lines', name='Close'))
-fig.add_trace(go.Scatter(x=df_DIS['Date'], y=df_DIS['Close'], mode='lines', name='Close'))
-fig.add_trace(go.Scatter(x=df_BA['Date'], y=df_BA['Close'], mode='lines', name='Close'))
-fig.add_trace(go.Scatter(x=df_AMZN['Date'], y=df_AMZN['Close'], mode='lines', name='Close'))
-fig.add_trace(go.Scatter(x=df_AAPL['Date'], y=df_AAPL['Close'], mode='lines', name='Close'))
+fig.add_trace(go.Scatter(x=df_TSLA['Date'], y=df_TSLA['Close'], mode='lines', name='TSLA'))
+fig.add_trace(go.Scatter(x=df_DIS['Date'], y=df_DIS['Close'], mode='lines', name='DIS'))
+fig.add_trace(go.Scatter(x=df_BA['Date'], y=df_BA['Close'], mode='lines', name='BA'))
+fig.add_trace(go.Scatter(x=df_AMZN['Date'], y=df_AMZN['Close'], mode='lines', name='AMZN'))
+fig.add_trace(go.Scatter(x=df_AAPL['Date'], y=df_AAPL['Close'], mode='lines', name='AAPL'))
 
 # Update layout with title and labels
 fig.update_layout(
