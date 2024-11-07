@@ -18,7 +18,7 @@ import sklearn
 
 
 # Function to load data from GitHub
-@st.cache
+@st.st.cache_data
 def load_data1():
     url = 'https://raw.githubusercontent.com/claireobrien00/Sem-2-CA2-Dashboard/main/AAPL.csv'
     data_AAPL = pd.read_csv(url)
