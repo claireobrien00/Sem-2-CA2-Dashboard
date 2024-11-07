@@ -31,17 +31,22 @@ df_AAPL = load_data1()
 # Convert 'Date' column to datetime if it's not already
 df_AAPL['Date'] = pd.to_datetime(df_AAPL['Date'])
 
+
+# Streamlit select box for price type
+price_type = st.selectbox(
+    "Select Price Type to Display",
+    options=["Open", "High", "Low", "Close"]
+)
+
+# Initialize the Plotly figure
 fig = go.Figure()
 
-# Add a line trace for each price type
-fig.add_trace(go.Scatter(x=df_AAPL['Date'], y=df_AAPL['Open'], mode='lines', name='Open'))
-fig.add_trace(go.Scatter(x=df_AAPL['Date'], y=df_AAPL['High'], mode='lines', name='High'))
-fig.add_trace(go.Scatter(x=df_AAPL['Date'], y=df_AAPL['Low'], mode='lines', name='Low'))
-fig.add_trace(go.Scatter(x=df_AAPL['Date'], y=df_AAPL['Close'], mode='lines', name='Close'))
+# Add a line trace based on the selected price type
+fig.add_trace(go.Scatter(x=df_AAPL['Date'], y=df_AAPL[price_type], mode='lines', name=price_type))
 
 # Update layout with title and labels
 fig.update_layout(
-    title=" AAPL Stock Prices Over Time",
+    title="AAPL Stock Prices Over Time",
     xaxis_title="Date",
     yaxis_title="Price",
     legend_title="Price Type"
@@ -252,7 +257,7 @@ fig.add_trace(go.Scatter(x=df_AAPL['Date'], y=df_AAPL['Close'], mode='lines', na
 
 # Update layout with title and labels
 fig.update_layout(
-    title=" AAPL Stock Prices Over Time",
+    title="Five companies closing stock prices Time",
     xaxis_title="Date",
     yaxis_title="Price",
     legend_title="Price Type"
