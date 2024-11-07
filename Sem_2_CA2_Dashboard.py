@@ -269,7 +269,7 @@ fig.add_trace(go.Scatter(x=df_AAPL['Date'], y=df_AAPL['Close'], mode='lines', na
 
 # Update layout with title and labels
 fig.update_layout(
-    title="Five companies closing stock prices Time",
+    title="Five companies closing stock prices for 2020",
     xaxis_title="Date",
     yaxis_title="Price",
     legend_title="Price Type"
