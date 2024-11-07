@@ -111,26 +111,37 @@ def load_data2():
     data_AMZN = pd.read_csv(url)
     return data_AMZN
 
-
-
 # Load the data
 df_AMZN = load_data2()
-
 
 # Convert 'Date' column to datetime if it's not already
 df_AMZN['Date'] = pd.to_datetime(df_AMZN['Date'])
 
+# Extract unique months and years from the data
+df_AMZN['Year'] = df_AMZN['Date'].dt.year
+df_AMZN['Month'] = df_AMZN['Date'].dt.month
+months = df_AMZN['Month'].unique()
+years = df_AMZN['Year'].unique()
+
+# Create a dropdown in Streamlit for year and month selection
+selected_year = st.selectbox("Select Year", sorted(years, reverse=True))
+selected_month = st.selectbox("Select Month", sorted(months))
+
+# Filter data based on selected month and year
+filtered_data = df_AMZN[(df_AMZN['Year'] == selected_year) & (df_AMZN['Month'] == selected_month)]
+
+# Initialize the Plotly figure
 fig = go.Figure()
 
 # Add a line trace for each price type
-fig.add_trace(go.Scatter(x=df_AMZN['Date'], y=df_AMZN['Open'], mode='lines', name='Open'))
-fig.add_trace(go.Scatter(x=df_AMZN['Date'], y=df_AMZN['High'], mode='lines', name='High'))
-fig.add_trace(go.Scatter(x=df_AMZN['Date'], y=df_AMZN['Low'], mode='lines', name='Low'))
-fig.add_trace(go.Scatter(x=df_AMZN['Date'], y=df_AMZN['Close'], mode='lines', name='Close'))
+fig.add_trace(go.Scatter(x=filtered_data['Date'], y=filtered_data['Open'], mode='lines', name='Open'))
+fig.add_trace(go.Scatter(x=filtered_data['Date'], y=filtered_data['High'], mode='lines', name='High'))
+fig.add_trace(go.Scatter(x=filtered_data['Date'], y=filtered_data['Low'], mode='lines', name='Low'))
+fig.add_trace(go.Scatter(x=filtered_data['Date'], y=filtered_data['Close'], mode='lines', name='Close'))
 
 # Update layout with title and labels
 fig.update_layout(
-    title=" AMZN Stock Prices Over Time",
+    title=f"AMZN Stock Prices for {selected_year}-{selected_month:02d}",
     xaxis_title="Date",
     yaxis_title="Price",
     legend_title="Price Type"
@@ -138,6 +149,8 @@ fig.update_layout(
 
 # Display the figure in Streamlit
 st.plotly_chart(fig)
+
+
 
 def load_data3():
     url = 'https://raw.githubusercontent.com/claireobrien00/Sem-2-CA2-Dashboard/main/BA.csv'
