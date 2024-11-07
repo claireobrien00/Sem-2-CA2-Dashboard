@@ -106,7 +106,6 @@ st.plotly_chart(fig)
 # else:
 #     st.write("Please upload a CSV file with stock data to make a prediction.")
 # Function to load data from GitHub
-@st.cache
 def load_data2():
     url = 'https://raw.githubusercontent.com/claireobrien00/Sem-2-CA2-Dashboard/main/AMZN.csv'
     data_AMZN = pd.read_csv(url)
